@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Digital program: The Vote Should Never Lose Its Power. D9 Harlem Votes®, Schomburg Center for Research in Black Culture, October 29, 2026.">
+<title>The Vote Should Never Lose Its Power</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Lato:wght@300;400;700&display=swap">
+<style>
+/* Layout: the deck's own slides stacked full width in show order, with tap-to-identify R.E.A.C.T.S. panels after each "Identify the Change" slide. Single dark look to match the deck. */
+:root{
+  --bg:#0E0E0E; --line:#2C2C2C; --paper:#F2F0ED; --soft:#ADA8A2; --faint:#78736E;
+  --crimson:#CB0606; --red-lt:#E5383B; --green:#2F5F48; --green-lt:#6FA88A;
+  --display:"Cinzel", Georgia, "Times New Roman", serif;
+  --body:"Lato", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--paper);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+img{max-width:100%;display:block}
+sup.r{font-size:.55em;vertical-align:super;line-height:0;margin-left:.03em}
+p{margin:0}
+main,.foot,.navin,.cover{max-width:960px;margin:0 auto}
+main{padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));display:grid;gap:12px;padding-block:8px 24px}
+.cover img{width:100%;height:auto}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(14,14,14,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.navin{display:flex;gap:2px;overflow-x:auto;padding:6px max(12px,env(safe-area-inset-right,0px)) 6px max(12px,env(safe-area-inset-left,0px));scrollbar-width:none}
+.navin::-webkit-scrollbar{display:none}
+nav a{flex:0 0 auto;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);text-decoration:none;padding:8px 10px}
+nav a:hover,nav a:focus-visible{color:var(--paper);outline:none;box-shadow:inset 0 -1px 0 var(--red-lt)}
+
+.slide{margin:0}
+.slide img{width:100%;height:auto;aspect-ratio:16/9;background:#1a1a1a}
+
+.sh{padding:30px 4px 6px;scroll-margin-top:48px}
+.stripe{display:grid;grid-template-rows:2px 2px 2px;width:56px;margin-bottom:12px}
+.stripe i:nth-child(1){background:var(--crimson)} .stripe i:nth-child(2){background:#000;box-shadow:0 0 0 1px #333} .stripe i:nth-child(3){background:var(--green)}
+.stripe.full{width:100%;margin:0}
+.lbl{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+h2{font-family:var(--display);font-weight:400;font-size:24px;letter-spacing:.02em;line-height:1.2;margin:6px 0 0;text-wrap:balance}
+.lede{color:var(--soft);font-size:14.5px;padding:0 4px 4px}
+.cap{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--green-lt);padding:10px 4px 0}
+
+.idc{border:1px solid var(--line);padding:16px 16px 12px}
+.idc .lbl{color:var(--paper)}
+.idc .hint{font-size:12px;color:var(--faint);margin-top:4px}
+.chips{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:12px}
+.chip{appearance:none;border:1px solid var(--line);background:transparent;color:var(--paper);padding:9px 0 7px;cursor:pointer;display:grid;justify-items:center;gap:2px;font:inherit;min-width:0;border-radius:0;transition:background .15s,color .15s,border-color .15s}
+.chip b{font-family:var(--display);font-weight:400;font-size:21px;line-height:1}
+.chip span{font-size:9px;color:var(--faint);letter-spacing:.03em;line-height:1.1;text-align:center}
+.chip:hover{border-color:var(--soft)}
+.chip:focus-visible{outline:1px solid var(--paper);outline-offset:2px}
+.chip[aria-pressed="true"]{background:var(--paper);color:var(--bg);border-color:var(--paper)}
+.chip[aria-pressed="true"] span{color:#555}
+.picked{font-size:12.5px;color:var(--green-lt);margin-top:8px;min-height:1.3em}
+
+.vote{padding-top:24px}
+.votebox{border:1px solid var(--paper);padding:22px 20px}
+.votebox h3{font-family:var(--display);font-weight:400;font-size:20px;margin:0 0 14px}
+.votebox dl{margin:0;display:grid;gap:12px}
+.votebox dt{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--green-lt)}
+.votebox dd{margin:2px 0 0;font-size:15px}
+
+.foot{text-align:center;padding:26px max(20px,env(safe-area-inset-right,0px)) 36px max(20px,env(safe-area-inset-left,0px));border-top:1px solid var(--line)}
+.disclaimer{font-size:14px;line-height:1.6;max-width:540px;margin:0 auto;text-align:justify;text-align-last:center;hyphens:auto}
+.contact{font-size:12px;letter-spacing:.1em;color:var(--soft);margin-top:14px;user-select:all}
+
+@media (max-width:370px){ .chip span{display:none} }
+</style>
+</head>
+<body>
+
+
+<div class="cover"><figure class="slide"><img src="slides/s-01.jpg" alt="D9 Harlem Votes®, in partnership with Alpha Kappa Alpha Sorority, Incorporated®, Pi Kappa Omega Chapter, and the Sterling Johnson, Jr. New York Chapter of the National Black Prosecutors Association, presents... Harlem, join us for a nonpartisan, interactive exercise to help identify the changes and " width="1280" height="720"></figure></div>
+<nav aria-label="Program sections"><div class="navin">
+  <a href="#program">Program</a><a href="#proposals">Proposals</a><a href="#roundtable">Roundtable</a><a href="#closing">Closing</a><a href="#partners">Partners</a><a href="#team">Teams</a><a href="#vote">Your Vote</a>
+</div></nav>
+<main lang="en">
+<header class="sh" id="program"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="lbl">Tonight</div><h2>Welcome</h2></header>
+<figure class="slide"><img src="slides/s-02.jpg" alt="WELCOME HARLEM" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-03.jpg" alt="DREW K. GABRIEL CO-CHAIR D9 HARLEM VOTES® FOUNDING MEMBER STEERING COMMITTEE MEMBER OF ALPHA PHI ALPHA FRATERNITY, INCORPORATED ALPHA GAMMA LAMBDA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-04.jpg" alt="SHADAWN N. SMITH BASILEUS ALPHA KAPPA ALPHA SORORITY, INCORPORATED® PI KAPPA OMEGA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-05.jpg" alt="ASSISTANT DISTRICT ATTORNEY JANNINE ROWSER, ESQ. PRESIDENT STERLING JOHNSON, JR., NEW YORK CHAPTER NATIONAL BLACK PROSECUTORS ASSOCIATION" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-06.jpg" alt="DREW K. GABRIEL CO-CHAIR D9 HARLEM VOTES® FOUNDING MEMBER STEERING COMMITTEE MEMBER OF ALPHA PHI ALPHA FRATERNITY, INCORPORATED ALPHA GAMMA LAMBDA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-07.jpg" alt="ERIKA L. EWING CO-CHAIR D9 HARLEM VOTES® FOUNDING MEMBER STEERING COMMITTEE MEMBER OF DELTA SIGMA THETA SORORITY, INCORPORATED NEW YORK ALUMNAE CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-08.jpg" alt="CIVIC EDUCATION TEAM D9 HARLEM VOTES® Lisa White-Tingling, MPA | Erika L. Ewing, MFA | Lawrence Winslow Aaliyah Brown | Gilda D. Gillim, MA | Michael Daley | Darrick Robinson" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<header class="sh" id="proposals"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="lbl">Civic Education</div><h2>5 NYC Ballot Proposals</h2></header>
+<p class="lede">Tap the letters under each &ldquo;Identify the Change&rdquo; slide as our hosts walk through it.</p>
+<figure class="slide"><img src="slides/s-09.jpg" alt="5 NYC BALLOT PROPOSALS R.E.A.C.T.S CIVIC EDUCATION | A NON PARTISAN APPROACH" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-10.jpg" alt="R.E.A.C.T.S. R.E.A.C.T.S. IS AN INTERACTIVE, NON-PARTISAN CIVIC EDUCATION EXERCISE THAT ASKS YOU TO IIDENTIFY DENTIFY THE CHANGE" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-11.jpg" alt="CIVIC ENGAGEMENT HOST JORDAN HAMPTON STEERING COMMITTEE VOLUNTEER D9 HARLEM VOTES® MEMBER OF OMEGA PSI PHI FRATERNITY, INCORPORATED EPSILON CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-12.jpg" alt="CIVIC ENGAGEMENT HOST KIM DENNIS WALKER STEERING COMMITTEE VOLUNTEER D9 HARLEM VOTES® MEMBER OF DELTA SIGMA THETA SORORITY, INCORPORATED NEW YORK ALUMNAE CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-13.jpg" alt="PRACTICE ROUND" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-14.jpg" alt="1 # Your cable provider wants to bundle all of your streaming services so you receive one monthly bill. A &quot;yes&quot; means you will pay one monthly subscription fee with ads. A &quot;no&quot; means you will continue to pay for each subscription separately, receive individual bills for each service, and remain ad-f" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-15.jpg" alt="# 1 Your cable provider wants w ants to bundle all of your streaming sservices ervices so you receive one o ne monthly bill. A &quot;yes&quot; means you pay for one subscription per month with advertisements. A &quot;no&quot; means you will continue to be billed separately for each subscription, and you will not have a" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<div class="idc" data-id="practice"><div class="lbl">Practice Round: Identify the Change</div><p class="hint">Tap every letter that applies. Your picks stay on your phone.</p><div class="chips"><button type="button" class="chip" id="c-practice-R" data-l="R" aria-pressed="false"><b>R</b><span>Remove</span></button><button type="button" class="chip" id="c-practice-E" data-l="E" aria-pressed="false"><b>E</b><span>Expand</span></button><button type="button" class="chip" id="c-practice-A" data-l="A" aria-pressed="false"><b>A</b><span>Add</span></button><button type="button" class="chip" id="c-practice-C" data-l="C" aria-pressed="false"><b>C</b><span>Centralize</span></button><button type="button" class="chip" id="c-practice-T" data-l="T" aria-pressed="false"><b>T</b><span>Transfer</span></button><button type="button" class="chip" id="c-practice-S" data-l="S" aria-pressed="false"><b>S</b><span>Simplify</span></button></div><p class="picked" aria-live="polite"></p></div>
+<figure class="slide"><img src="slides/s-16.jpg" alt="PROPOSED CHARTER AMENDMENT BALLOT PROPOSAL #1 HOPE MADDOX FOUNDING MEMBER, STEERING COMMITTEE D9 HARLEM VOTES® MEMBER OF SIGMA GAMMA RHO SORORITY, INCORPORATED KAPPA SIGMA NYC ALUMNAE CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-17.jpg" alt="# BALLOT PROPOSAL 1 Speed Up Process For Granting a Revocable Consent to Use Public Space Simplify process to use public space for uses such as ramps, planters, and cafes, by removing mandatory hearings and Council disapproval of sidewalk cafes, while maintaining community and Council input. A &quot;yes&quot;" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-18.jpg" alt="# 1 SPEED UP PROCESS FOR GRANTING REVOCABLE CONSENT TO USE PUBLIC SPACE A &quot;yes&quot; vote speeds up process to use public space while maintaining community input. A &quot;no&quot; vote maintains longer process with mandatory public hearing to use public space and Council review of sidewalk cafes. R E A C IDENTIFY " width="1280" height="720" loading="lazy" decoding="async"></figure>
+<div class="idc" data-id="p1"><div class="lbl">Proposal #1: Identify the Change</div><p class="hint">Tap every letter that applies. Your picks stay on your phone.</p><div class="chips"><button type="button" class="chip" id="c-p1-R" data-l="R" aria-pressed="false"><b>R</b><span>Remove</span></button><button type="button" class="chip" id="c-p1-E" data-l="E" aria-pressed="false"><b>E</b><span>Expand</span></button><button type="button" class="chip" id="c-p1-A" data-l="A" aria-pressed="false"><b>A</b><span>Add</span></button><button type="button" class="chip" id="c-p1-C" data-l="C" aria-pressed="false"><b>C</b><span>Centralize</span></button><button type="button" class="chip" id="c-p1-T" data-l="T" aria-pressed="false"><b>T</b><span>Transfer</span></button><button type="button" class="chip" id="c-p1-S" data-l="S" aria-pressed="false"><b>S</b><span>Simplify</span></button></div><p class="picked" aria-live="polite"></p></div>
+<figure class="slide"><img src="slides/s-19.jpg" alt="PROPOSED CHARTER AMENDMENT BALLOT PROPOSAL #2 SHANA HARMONGOFF, JD DIRECTOR OF COMMUNICATIONS FOUNDING MEMBER, STEERING COMMITTEE D9 HARLEM VOTES® MEMBER OF ALPHA KAPPA ALPHA SORORITY, INCORPORATED® TAU OMEGA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-20.jpg" alt="2 # BALLOT PROPOSAL Reduce City Contractor Paperwork; Require Regular Meetings of the Procurement Policy Board Reduce paperwork for City&#x27;s contractors by authorizing Procurement Policy Board to simplify contractor questionnaire. Require quarterly meetings of the Procurement Policy Board. Remove mand" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-21.jpg" alt="2 # Reduce City Contractor Paperwork; Require Regular Meetings of the Procurement Policy Board A &quot;yes&quot; vote amends Procurement Policy Board authority, including simplifying contractor questionnaire. Authorizes Mayor to delegate certain contract approvals. A &quot;no&quot; vote leaves law unchanged, with Mayor" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<div class="idc" data-id="p2"><div class="lbl">Proposal #2: Identify the Change</div><p class="hint">Tap every letter that applies. Your picks stay on your phone.</p><div class="chips"><button type="button" class="chip" id="c-p2-R" data-l="R" aria-pressed="false"><b>R</b><span>Remove</span></button><button type="button" class="chip" id="c-p2-E" data-l="E" aria-pressed="false"><b>E</b><span>Expand</span></button><button type="button" class="chip" id="c-p2-A" data-l="A" aria-pressed="false"><b>A</b><span>Add</span></button><button type="button" class="chip" id="c-p2-C" data-l="C" aria-pressed="false"><b>C</b><span>Centralize</span></button><button type="button" class="chip" id="c-p2-T" data-l="T" aria-pressed="false"><b>T</b><span>Transfer</span></button><button type="button" class="chip" id="c-p2-S" data-l="S" aria-pressed="false"><b>S</b><span>Simplify</span></button></div><p class="picked" aria-live="polite"></p></div>
+<figure class="slide"><img src="slides/s-22.jpg" alt="PROPOSED CHARTER AMENDMENT BALLOT PROPOSAL #3 DONNELL G. BOLDEN FOUNDING MEMBER, STEERING COMMITTEE D9 HARLEM VOTES® MEMBER OF OMEGA PSI PHI FRATERNITY, INCORPORATED XI PHI CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-23.jpg" alt="3 # BALLOT PROPOSAL Speed Up Street Safety Projects, Disposition of Projects, Unused City Property, Unused Office Leasing Office Simplify review of street safety projects to reduce construction timelines. Fast track disposition of unused City property with approval from City Planning Commission. Exp" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-24.jpg" alt="# 3 Speed Up Street Safety Projects, Disposition of Projects, Unused City Property, Unused Office Leasing Office A &quot;yes&quot; vote simplifies street project approval, City property disposition, and office leasing. A &quot;no&quot; vote maintains intra-agency consultation for road projects, Council approval for Cit" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<div class="idc" data-id="p3"><div class="lbl">Proposal #3: Identify the Change</div><p class="hint">Tap every letter that applies. Your picks stay on your phone.</p><div class="chips"><button type="button" class="chip" id="c-p3-R" data-l="R" aria-pressed="false"><b>R</b><span>Remove</span></button><button type="button" class="chip" id="c-p3-E" data-l="E" aria-pressed="false"><b>E</b><span>Expand</span></button><button type="button" class="chip" id="c-p3-A" data-l="A" aria-pressed="false"><b>A</b><span>Add</span></button><button type="button" class="chip" id="c-p3-C" data-l="C" aria-pressed="false"><b>C</b><span>Centralize</span></button><button type="button" class="chip" id="c-p3-T" data-l="T" aria-pressed="false"><b>T</b><span>Transfer</span></button><button type="button" class="chip" id="c-p3-S" data-l="S" aria-pressed="false"><b>S</b><span>Simplify</span></button></div><p class="picked" aria-live="polite"></p></div>
+<figure class="slide"><img src="slides/s-25.jpg" alt="PROPOSED CHARTER AMENDMENT BALLOT PROPOSAL #4 STEVE W. MILLER FOUNDING MEMBER, STEERING COMMITTEE D9 HARLEM VOTES® MEMBER OF PHI BETA SIGMA FRATERNITY, INCORPORATED BASILEUS OF EPSILON SIGMA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-26.jpg" alt="4 BALLOT PROPOSAL # Simplify Building Permitting aand nd Move Waterfront Permitting P ermitting to Department of Buildings Create centralized construction permits hub to simplify permitting. Move waterfront permitting from Department of Small Business Services to Department of Buildings. Allow const" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-27.jpg" alt="4 # Simplify Building Permitting and Move Permitting Waterfront Permitting to Waterfront Department of Buildings Department A &quot;yes&quot; vote simplifies permitting by authorizing a centralized permitting hub, moving waterfront permitting to Department of Buildings, and allowing additional Department of B" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<div class="idc" data-id="p4"><div class="lbl">Proposal #4: Identify the Change</div><p class="hint">Tap every letter that applies. Your picks stay on your phone.</p><div class="chips"><button type="button" class="chip" id="c-p4-R" data-l="R" aria-pressed="false"><b>R</b><span>Remove</span></button><button type="button" class="chip" id="c-p4-E" data-l="E" aria-pressed="false"><b>E</b><span>Expand</span></button><button type="button" class="chip" id="c-p4-A" data-l="A" aria-pressed="false"><b>A</b><span>Add</span></button><button type="button" class="chip" id="c-p4-C" data-l="C" aria-pressed="false"><b>C</b><span>Centralize</span></button><button type="button" class="chip" id="c-p4-T" data-l="T" aria-pressed="false"><b>T</b><span>Transfer</span></button><button type="button" class="chip" id="c-p4-S" data-l="S" aria-pressed="false"><b>S</b><span>Simplify</span></button></div><p class="picked" aria-live="polite"></p></div>
+<figure class="slide"><img src="slides/s-28.jpg" alt="PROPOSED CHARTER AMENDMENT BALLOT PROPOSAL #5 GILDA D. GILLIM DIRECTOR OF PARTNERSHIPS &amp; COMMUNITY OUTREACH STEERING COMMITTEE MEMBER D9 HARLEM VOTES® MEMBER OF DELTA SIGMA THETA SORORITY, INCORPORATED NEW YORK ALUMNAE CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-29.jpg" alt="5 # BALLOT PROPOSAL Set Contribution Targets for Rainy Day Fund to Promote Sufficient Budgetary Reserves Set target amount of money to hold in reserve funds, including rainy day fund, to address unexpected financial hardships in future years, and require development of methodology to calculate contr" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-30.jpg" alt="5 # Set Contribution Targets for Rainy Day Fund F und to Promote Sufficient Budgetary Reserves R eserves A &quot;yes&quot; vote requires the Mayor to develop methodology for calculating deposits to rainy day fund, with deposits subject to approval in the City budget. A &quot;no&quot; vote leaves laws unchanged, with no" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<div class="idc" data-id="p5"><div class="lbl">Proposal #5: Identify the Change</div><p class="hint">Tap every letter that applies. Your picks stay on your phone.</p><div class="chips"><button type="button" class="chip" id="c-p5-R" data-l="R" aria-pressed="false"><b>R</b><span>Remove</span></button><button type="button" class="chip" id="c-p5-E" data-l="E" aria-pressed="false"><b>E</b><span>Expand</span></button><button type="button" class="chip" id="c-p5-A" data-l="A" aria-pressed="false"><b>A</b><span>Add</span></button><button type="button" class="chip" id="c-p5-C" data-l="C" aria-pressed="false"><b>C</b><span>Centralize</span></button><button type="button" class="chip" id="c-p5-T" data-l="T" aria-pressed="false"><b>T</b><span>Transfer</span></button><button type="button" class="chip" id="c-p5-S" data-l="S" aria-pressed="false"><b>S</b><span>Simplify</span></button></div><p class="picked" aria-live="polite"></p></div>
+<figure class="slide"><img src="slides/s-31.jpg" alt="DREW K. GABRIEL CO-CHAIR D9 HARLEM VOTES® FOUNDING MEMBER STEERING COMMITTEE MEMBER OF ALPHA PHI ALPHA FRATERNITY, INCORPORATED ALPHA GAMMA LAMBDA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<header class="sh" id="roundtable"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="lbl">Roundtable</div><h2>The Vote Should Never Lose Its Power</h2></header>
+<figure class="slide"><img src="slides/s-32.jpg" alt="VOTE V O TE THE SHOULD NEVER LOSE ITS POWER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-33.jpg" alt="ROUNDTABLE OVERVIEW OVERVIEW" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-34.jpg" alt="ASSISTANT DISTRICT ATTORNEY JANNINE ROWSER, ESQ. PRESIDENT STERLING JOHNSON, JR., NEW YORK CHAPTER NATIONAL BLACK PROSECUTORS ASSOCIATION" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-35.jpg" alt="BIO INTRODUCTIONS GUEST PANELISTS PANELISTS &amp; MODERATOR MODERATOR" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-36.jpg" alt="ASSISTANT DISTRICT ATTORNEY JOEL WRIGHT, ESQ. VICE PRESIDENT OF MEMBERSHIP STERLING JOHNSON, JR., NEW YORK CHAPTER NATIONAL BLACK PROSECUTORS ASSOCIATION" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-37.jpg" alt="PANELIST ZSA’QUERIA B. MARTIN, ESQ. LITIGATION COUNSEL COUNSEL DEMOCRACY DEFENDERS FUND" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-38.jpg" alt="JORDAN M. GWYNN, ESQ. STEERING COMMITTEE MEMBER D9 HARLEM VOTES® MEMBER OF ALPHA PHI ALPHA FRATERNITY, INCORPORATED KAPPA XI LAMBDA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-39.jpg" alt="PANELIST CHARLES JOHNSON, ESQ. POLITICAL ACTION CHAIR AND AND CIVIC ENGAGEM ENGAGEME ENT NT CHAIR CHAIR NAACP NEW YORK STATE CONFERENCE MEMBER OF ALPHA PHI ALPHA FRATERNITY, INCORPORATED" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-40.jpg" alt="MUNA MOUSHIEN IVY LEAF REPORTER ALPHA KAPPA ALPHA SORORITY, INCORPORATED® PI KAPPA OMEGA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-41.jpg" alt="PANELIST NAILA KEYS PACE UNIVERSITY STUDENT STUDENT ALPHA KAPPA ALPHA SORORITY, INCORPORATED® RHO THETA THETA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-42.jpg" alt="JASMINE G. MCFARLANE-WHITE DIRECTOR OF MEMBER &amp; VOLUNTEER ENGAGEMENT STEERING COMMITTEE MEMBER D9 HARLEM VOTES® MEMBER OF ALPHA KAPPA ALPHA SORORITY, INCORPORATED®" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-43.jpg" alt="PANELIST HON. MILTON A. TINGLING NEW YORK COUNTY CLERK AND AND COMMISSIONER OF JURORS RETIRED NEW YORK STATE STATE SUPREME COURT JUSTICE" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-44.jpg" alt="ASSISTANT DISTRICT ATTORNEY BRITTANY BURK, ESQ. VICE PRESIDENT OF PROGRAMS AND PLANNING STERLING JOHNSON, JR., NEW YORK CHAPTER NATIONAL BLACK PROSECUTORS ASSOCIATION MEMBER OF ZETA PHI BETA SORORITY, INCORPORATED" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-45.jpg" alt="MODERATOR NIGEL L. FARINHA, ESQ. CHIEF DIVERSITY OFFICER, ASSISTANT DISTRICT ATTORNEY, O OFFICE FFICE OF THE SPECIAL NARCOTICS NARCOTICS PROSECUTOR P ROSECUTOR FOR THE CITY OF NEW YORK MEMBER OF KAPPA ALPHA PSI FRATERNITY, INCORPORATED" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<header class="sh" id="closing"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="lbl">Closing</div><h2>Closing Remarks &amp; Special Thanks</h2></header>
+<figure class="slide"><img src="slides/s-46.jpg" alt="VOTE V O TE THE SHOULD NEVER LOSE ITS POWER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-47.jpg" alt="VOTE V O TE THE SHOULD NEVER LOSE ITS POWER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-48.jpg" alt="CLOSING REMARKS SPECIAL THANKS THANKS" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-49.jpg" alt="LISAWHITE-TINGLING DIRECTOR OF CIVIC AFFAIRS, POLICY &amp; COMPLIANCE NYC BOARD OF ELECTIONS LIAISON STEERING COMMITTEE MEMBER D9 HARLEM VOTES® MEMBER OF ALPHA KAPPA ALPHA SORORITY INCORPORATED® PI KAPPA OMEGA CHAPTER CHAIRMAN OF PI KAPPA OMEGA CHAPTER’S CONNECTION AND SOCIAL ACTION" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-50.jpg" alt="DREW K. GABRIEL CO-CHAIR D9 HARLEM VOTES® FOUNDING MEMBER STEERING COMMITTEE MEMBER OF ALPHA PHI ALPHA FRATERNITY, INCORPORATED ALPHA GAMMA LAMBDA CHAPTER" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<header class="sh" id="partners"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="lbl">With Thanks</div><h2>Our Partners &amp; Sponsor</h2></header>
+<figure class="slide"><img src="slides/a_aka.jpg" alt="Alpha Kappa Alpha Sorority, Incorporated, Pi Kappa Omega Chapter. Chartered June 26, 1986." width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/a_basileus.jpg" alt="Shadawn N. Smith, Basileus, Alpha Kappa Alpha Sorority, Incorporated, Pi Kappa Omega Chapter" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/a_nbpapres.jpg" alt="Assistant District Attorney Jannine Rowser, Esq., President, Sterling Johnson, Jr., New York Chapter, National Black Prosecutors Association" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<p class="cap">Culinary Sponsor: Celebrity Chef George Gray</p>
+<figure class="slide"><img src="slides/a_chef.jpg" alt="Celebrity Chef George: Creative Courses and Bites. Private chef experiences, intimate dining events, Airbnb guest experiences. (347) 268-8262." width="1280" height="720" loading="lazy" decoding="async"></figure>
+<header class="sh" id="team"><div class="stripe" aria-hidden="true"><i></i><i></i><i></i></div><div class="lbl">With Gratitude</div><h2>The Teams Behind Tonight</h2></header>
+<figure class="slide"><img src="slides/s-51.jpg" alt="PRODUCTION P RODUCTION TEAM TEAM DREW K. GABRIEL GABRIEL EXECUTIVE E XECUTIVE PRODUCER / EVENT HOST ERIKA L. EWING, MFA. MFA. EXECUTIVE E XECUTIVE PRODUCER / CREATIVE DIRECTOR KIM DENNIS WALKER WALKER EXECUTIVE PRODUCTION ASSISTANT/ HOST AKEEM HILL HILL PRODUCTION P RODUCTION DIRECTOR AALIYAH BROWN " width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-52.jpg" alt="EVENT TEAM MUHAMMAD BILAL BILAL MIC M IC COORDINATOR ZULEME JONES-ENOE JONES-ENOE MIC M IC COORDINATOR SHANA HARMONGOFF, JD JD COMMUNICATIONS/PR C OMMUNICATIONS/PR ISAIAH JONES JONES RESOURCE R ESOURCE TABLE TAHIRI ROBINSON ROBINSON RESOURCE R ESOURCE TABLE TABLE TORRENCE S. TRAYNHAM TRAYNHAM VIDEOG" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-53.jpg" alt="GUEST GREETERS GREETERS JASMINE G. MCFARLANE-WHITE MCFARLANE-WHITE HONORABLE H ONORABLE JUDGE TINGLING HOPE MADDOX MADDOX ESCORT E SCORT NAILA KEYS KEYS DIMITRI PINNOCK PINNOCK CHARLES C HARLES JOHNSON, ESQ. ESQ. STEVE W. MILLER MILLER NIGEL N IGEL L. FARINHA, ESQ. PASCALE BERNARD BERNARD ZSA’QUERIA" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-54.jpg" alt="HOSPITALITY &amp; REGISTRATION KAWANA KING LISA NORMAN NORMAN NA&#x27;EEMA FREEMAN THELMA GREENIDGE SHEILA DAVIS DAVIS MUNA MOUSHIEN MOUSHIEN" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-55.jpg" alt="THANK YOU TO Our Community Partners and Venue Hosts Our Speakers, Moderator, and Panelists Our Civic Education and Production Teams Our Volunteers and Community Supporters WE SERVE HARLEM FIRST D9 HARLEM VOTES®" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<figure class="slide"><img src="slides/s-56.jpg" alt="Slide 56" width="1280" height="720" loading="lazy" decoding="async"></figure>
+<section id="vote" class="vote"><div class="votebox">
+  <h3>Your Vote, November 2026</h3>
+  <dl>
+    <div><dt>Early Voting</dt><dd>Now through Sunday, November 1</dd></div>
+    <div><dt>Election Day</dt><dd>Tuesday, November 3, 2026, 6:00 AM to 9:00 PM</dd></div>
+    <div><dt>On the Ballot</dt><dd>Turn your ballot over. The five NYC ballot proposals are on the back.</dd></div>
+  </dl>
+</div></section>
+</main>
+<footer class="foot" lang="en">
+  <p class="disclaimer">D9 Harlem Votes<sup class="r">®</sup> is a nonpartisan civic education coalition comprised of members of historically Black fraternities and sororities serving Harlem, New York.</p>
+  <p class="contact">D9HarlemVotes@gmail.com</p>
+</footer>
+<div class="stripe full" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<script>
+(function(){
+  var KEY='d9-reacts-2026';
+  var NAMES={R:'Removing a requirement',E:'Expanding authority',A:'Adding a requirement',C:'Centralizing a process',T:'Transferring authority',S:'Simplifying or shortening a process'};
+  var state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){state={}}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+  function render(box){
+    var id=box.getAttribute('data-id'),sel=state[id]||[];
+    box.querySelectorAll('.chip').forEach(function(b){b.setAttribute('aria-pressed',sel.indexOf(b.getAttribute('data-l'))>-1?'true':'false')});
+    box.querySelector('.picked').textContent=sel.length?('You identified: '+sel.map(function(l){return NAMES[l]}).join('; ')):'';
+  }
+  document.querySelectorAll('.idc').forEach(function(box){
+    var id=box.getAttribute('data-id');
+    box.querySelectorAll('.chip').forEach(function(b){
+      b.addEventListener('click',function(){
+        var l=b.getAttribute('data-l'),sel=(state[id]||[]).slice(),i=sel.indexOf(l);
+        if(i>-1)sel.splice(i,1);else sel.push(l);
+        sel.sort(function(a,c){return 'REACTS'.indexOf(a)-'REACTS'.indexOf(c)});
+        state[id]=sel;save();render(box);
+      });
+    });
+    render(box);
+  });
+})();
+</script>
+
+</body>
+</html>
